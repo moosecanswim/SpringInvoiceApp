@@ -3,7 +3,10 @@ package me.moosecanswim.startinvoiceapp.MainControllers;
 import me.moosecanswim.startinvoiceapp.Models.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class MainControllers {
@@ -13,7 +16,7 @@ public class MainControllers {
     {
         String sendToIndex = "This is my WELCOME page (from controler)";
         model.addAttribute("message", sendToIndex);
-       return "index";
+        return "index";
     }
     @RequestMapping("/login")
     public String login(Model model)
@@ -45,7 +48,10 @@ public class MainControllers {
         return "listproducts";
     }
     @RequestMapping("/showitemdetails")
-    public String showItemDetails(@ModelAttribute Product product){
+    public String showItemDetails(@Valid Product product, BindingResult bindingResult){
+        if(bindingResult.hasErrors()) {
+            return "addproduct";
+        }
         return "showitemdetails";
     }
 
