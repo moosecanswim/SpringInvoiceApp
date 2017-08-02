@@ -5,6 +5,10 @@ public class Product {
     private String itemName;
     private double itemPrice;
 
+    public void product(){
+
+    }
+
     public void product(String name, double price){
         this.setItemName(name);
         this.setItemPrice(price);

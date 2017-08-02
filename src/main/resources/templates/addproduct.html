@@ -5,9 +5,16 @@
         <title>Add a Product</title>
     </head>
     <body>
-        <h1>Add a product (h1)</h1>
-        <p th:text = "${messageAddProduct}">This is a placeholder for the addProduct page</p>
-        <h2 th:text = "${messageAddProduct}">this is the h2 placeholder</h2>
+        <h1>Add a product</h1>
+        <p>Please insert values to add product to invoice.</p>
+
+        <h1>Form</h1>
+        <form action = "#" th:action="@{/addproduct}" th:object="${product}" method = "post">
+            <p>Item Code: <input type = "text" th:field="*{itemCode}" /></p>
+            <p>Item Name: <input type = "text" th:field="*{itemName}" /></p>
+            <p>Item Price: <input type = "integer" th:field="*{itemPrice}"/></p>
+            <p><input type = "submit" value = "Submit"/> <input type="reset" value="Reset" /></p>
+        </form>
 
     </body>
 </html>
