@@ -32,10 +32,11 @@ public class MainControllers {
         model.addAttribute("product", new Product());
         return "addproduct";
     }
-    @PostMapping("/addproduct")
-    public String addProduct(@ModelAttribute Product aProduct){
+
+   /* @PostMapping("/addproduct")
+    public String addProduct(@ModelAttribute Product product){
         return "addproductconfirm";
-    }
+    }*/
 
     @RequestMapping("/listproducts")
     public String listProducts(Model model)
@@ -46,10 +47,7 @@ public class MainControllers {
         return "listproducts";
     }
     @RequestMapping("/showitemdetails")
-    public String showItemDetails(Model model)
-    {
-        String toShowDetails = "this is to show details (from controller)";
-        model.addAttribute("message",toShowDetails);
+    public String showItemDetails(@ModelAttribute Product product){
         return "showitemdetails";
     }
 

@@ -9,7 +9,7 @@
         <p>Please insert values to add product to invoice.</p>
 
         <h1>Form</h1>
-        <form action = "#" th:action="@{/addproduct}" th:object="${product}" method = "post">
+        <form action = "#" th:action="@{/showitemdetails}" th:object="${product}" method = "post">
             <p>Item Code: <input type = "text" th:field="*{itemCode}" /></p>
             <p>Item Name: <input type = "text" th:field="*{itemName}" /></p>
             <p>Item Price: <input type = "integer" th:field="*{itemPrice}"/></p>

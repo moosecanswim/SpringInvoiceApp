@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head lang="en">
-        <meta charset="UTF-8"/>
-        <title>Show Item Details</title>
-    </head>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Added Product</title>
+</head>
     <body>
-        <h1>Show Item Details</h1>
-        <p th:text="${message}">Show a default show item details placeholder</p>
-
+        <h1>Showing Item Details</h1>
+        <p th:text="'Item Code: ' + ${product.itemCode}" />
+        <p th:text="'Item Name: ' + ${product.itemName}" />
+        <p th:text="'Item Price: ' + ${product.itemPrice}" />
+        <a href="/addproduct">Add another product</a>
     </body>
 </html>
