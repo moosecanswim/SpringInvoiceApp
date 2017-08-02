@@ -27,8 +27,6 @@ public class MainControllers {
     @GetMapping("/addproduct")
     public String addProduct(Model model)
     {
-        //String sendToaProduct = "Add a Product here.  (from controller)";
-        //model.addAttribute("messageAddProduct", sendToaProduct);
         model.addAttribute("product", new Product());
         return "addproduct";
     }
