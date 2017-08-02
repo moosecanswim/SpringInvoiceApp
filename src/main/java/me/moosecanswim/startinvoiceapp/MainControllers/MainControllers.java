@@ -33,8 +33,8 @@ public class MainControllers {
     @RequestMapping("/listproducts")
     public String listProducts(Model model)
     {
-        String sendToListProducts = "This is a list of your products (from controller)";
-        model.addAttribute("messageListProduct",sendToListProducts);
+        String sendToListProducts = "This is a list of your products (from controller) The dependencies are: tymeleaf, web, and test";
+        model.addAttribute("message",sendToListProducts);
         return "listProducts";
     }
     @RequestMapping("/thankyou")
