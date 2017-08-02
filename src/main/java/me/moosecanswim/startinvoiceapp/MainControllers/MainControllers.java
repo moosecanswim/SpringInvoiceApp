@@ -37,6 +37,14 @@ public class MainControllers {
         model.addAttribute("message",sendToListProducts);
         return "listProducts";
     }
+    @RequestMapping("/showitemdetails")
+    public String showItemDetails(Model model)
+    {
+        String toShowDetails = "this is to show details (from controller)";
+        model.addAttribute("message",toShowDetails);
+        return "showitemdetails";
+    }
+
     @RequestMapping("/thankyou")
     public @ResponseBody String thankYou()
     {

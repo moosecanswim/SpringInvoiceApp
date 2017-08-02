@@ -1,28 +1,37 @@
 package me.moosecanswim.startinvoiceapp.Models;
 
 public class Product {
-    private String objectName;
-    private double objectPrice;
+    private String itemCode;
+    private String itemName;
+    private double itemPrice;
 
     public void product(String name, double price){
-        this.setObjectName(name);
-        this.setObjectPrice(price);
+        this.setItemName(name);
+        this.setItemPrice(price);
     }
 
     //getters and setters
-    public String getObjectName() {
-        return objectName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public double getObjectPrice() {
-        return objectPrice;
+    public double getItemPrice() {
+        return itemPrice;
     }
 
-    public void setObjectPrice(double objectPrice) {
-        this.objectPrice = objectPrice;
+    public void setItemPrice(double itemPrice) {
+        this.itemPrice = itemPrice;
+    }
+
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
     }
 }
