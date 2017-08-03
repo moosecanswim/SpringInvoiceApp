@@ -13,7 +13,7 @@ import javax.validation.Valid;
 @Controller
 public class MainControllers {
 
-    @Autowired
+    @Autowired //initializes productRepository and connects it
     ProductRepository productRepository;
 
     @RequestMapping("/")
@@ -55,13 +55,11 @@ public class MainControllers {
         return "showproductdetails";
     }
 
-    @RequestMapping("/listproducts")
-    public String listProducts(Model model)
+    @GetMapping("/listproducts")
+    public @ResponseBody String listProducts()
     {
-        String sendToListProducts = "This is a list of your products (from controller) The dependencies are: Spring-boot-starter-tymeleaf, Spring-boot-starter-web, and Spring-boot-starter-test";
-        model.addAttribute("message",sendToListProducts);
-
-        return "listproducts";
+        Iterable <Product> productList = productRepository.findAll();
+        return productList.toString();
     }
 
     @RequestMapping("/thankyou")

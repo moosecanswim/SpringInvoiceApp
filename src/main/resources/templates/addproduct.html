@@ -17,6 +17,7 @@
             <p>Item Price: <input type = "text" th:field="*{itemPrice}"/>
                 <span th:if="${#fields.hasErrors('itemPrice')}" th:errors="*{itemPrice}">Item Price Error</span></p>
             <p><input type = "submit" value = "Add Product"/> <input type="reset" value="Clear Form" /></p>
+
         </form>
 
     </body>
