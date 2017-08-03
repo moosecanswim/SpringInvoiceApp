@@ -1,6 +1,8 @@
 package me.moosecanswim.startinvoiceapp.MainControllers;
 
 import me.moosecanswim.startinvoiceapp.Models.Product;
+import me.moosecanswim.startinvoiceapp.repositories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +12,9 @@ import javax.validation.Valid;
 
 @Controller
 public class MainControllers {
+
+    @Autowired
+    ProductRepository productRepository;
 
     @RequestMapping("/")
     public String index(Model model)
@@ -39,6 +44,17 @@ public class MainControllers {
         return "addproductconfirm";
     }*/
 
+
+    @RequestMapping("/showproductdetails")
+    public String showItemDetails(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult){
+        System.out.println(bindingResult.toString());
+        if(bindingResult.hasErrors()) {
+            return "addproduct";
+        }
+        productRepository.save(product);
+        return "showproductdetails";
+    }
+
     @RequestMapping("/listproducts")
     public String listProducts(Model model)
     {
@@ -46,13 +62,6 @@ public class MainControllers {
         model.addAttribute("message",sendToListProducts);
 
         return "listproducts";
-    }
-    @RequestMapping("/showitemdetails")
-    public String showItemDetails(@Valid Product product, BindingResult bindingResult){
-        if(bindingResult.hasErrors()) {
-            return "addproduct";
-        }
-        return "showitemdetails";
     }
 
     @RequestMapping("/thankyou")

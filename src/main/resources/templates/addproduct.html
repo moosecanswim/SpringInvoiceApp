@@ -9,14 +9,14 @@
         <p>Please insert values to add product to invoice.</p>
 
         <h1>Form</h1>
-        <form action = "#" th:action="@{/showitemdetails}" th:object="${product}" method = "post">
-            <p>Item Code: <input type = "text" th:field="*{itemCode}" />
-                <span th:if="${#fields.hasErrors('itemCode')}" th:errors="*{itemCode}">Item Code Error</span></p>
+        <form action = "#" th:action="@{/showproductdetails}" th:object="${product}" method = "post">
+            <p>Item Code: <input type = "text" th:field="*{itemID}" />
+                <span th:if="${#fields.hasErrors('itemID')}" th:errors="*{itemID}">Item Code Error</span></p>
             <p>Item Name: <input type = "text" th:field="*{itemName}" />
                 <span th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}">Item Name Error</span></p>
-            <p>Item Price: <input type = "integer" th:field="*{itemPrice}"/>
+            <p>Item Price: <input type = "text" th:field="*{itemPrice}"/>
                 <span th:if="${#fields.hasErrors('itemPrice')}" th:errors="*{itemPrice}">Item Price Error</span></p>
-            <p><input type = "submit" value = "Submit"/> <input type="reset" value="Reset" /></p>
+            <p><input type = "submit" value = "Add Product"/> <input type="reset" value="Clear Form" /></p>
         </form>
 
     </body>

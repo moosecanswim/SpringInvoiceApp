@@ -1,18 +1,23 @@
 package me.moosecanswim.startinvoiceapp.Models;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Product {
     @NotNull(message="You must enter an item code")
-    @Min(value = 1, message = "Item code should be greater than 1")
-    private String itemCode;
+    @Min(value = 1, message = "Item code should be a 'long' greater than 1")
+    private long itemID;
+
     @NotNull(message="You must enter an item name")
     @Size(min=1, max = 30, message = "Item Name can be between 1 and 30 characters")
     private String itemName;
+
     @NotNull(message = "You must enter a price")
     private double itemPrice;
+
 
     public void product(){
 
@@ -40,11 +45,12 @@ public class Product {
         this.itemPrice = itemPrice;
     }
 
-    public String getItemCode() {
-        return itemCode;
+
+    public long getItemID() {
+        return itemID;
     }
 
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
+    public void setItemID(long itemID) {
+        this.itemID = itemID;
     }
 }
